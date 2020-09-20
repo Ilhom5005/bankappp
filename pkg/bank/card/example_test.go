@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func ExamplePaymentSource() {
+func ExamplePaymentSources() {
 	cards := []types.Card {
 		{
 			PAN:  "5058 2562 5451 0000",
@@ -22,11 +22,21 @@ func ExamplePaymentSource() {
 			Balance: 5_000,
 			Active: true,
 		},
+		{
+			PAN:  "5058 2562 5451 8888",
+			Balance: -2,
+			Active: true,
+		},
+		{
+			PAN:  "5058 2562 5451 9999",
+			Balance: 0,
+			Active: true,
+		},
 	}
 
-	paymentSources := PaymentSource(cards)
+	paymentSource := PaymentSources(cards)
 
-	for _, v := range paymentSources {
+	for _, v := range paymentSource {
 		fmt.Println(v.Number)
 		
 	}
@@ -34,4 +44,5 @@ func ExamplePaymentSource() {
 	//Output:
 	//5058 2562 5451 0000
 	//5058 2562 5451 2222
+	//5058 2562 5451 9999
 }

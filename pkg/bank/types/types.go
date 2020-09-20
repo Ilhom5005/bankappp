@@ -38,7 +38,7 @@ type Payment struct {
 
 
 // PaymentSource func
-type PaymentSource struct {
+type PaymentSources struct {
 	Type string //'card'
 	Number string // '5058 xxxx xxxx 8888'
 	Balance Money // баланс в дирамах
